@@ -5,7 +5,7 @@
 \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 \begin{document}
 \title{航班规划系统设计综述\thanks{Supported by BUAA}}
-\author{胡权权}
+% \author{胡权权}
 \institute{北京航空航天大学\ 计算机科学与技术系,北京 100084}
 \maketitle
 \begin{abstract}
@@ -29,9 +29,9 @@
 
 然而航空网络设计问题是一个NP完全问题，经典算法无法有效解决，所以启发式算法的研究越来越多，例如Zhong Yuan-xiang 和 Chen Zheng-fang 提出的一种基于tuba搜索的模拟退火算法\upcite{ref_article23}，BAI Ming-guo提出的基于tuba搜索和最短路径的启发式算法\upcite{ref_article24}，实验结果表明这些算法是有效的。在Yi QIN等2009年的工作中\upcite{ref_article10}，作者建立了没有具体轮毂数量的数学模型，为了避免算法陷入局部解，使算法易于用代码实现，作者结合了蚁群算法，以蚂蚁在网络中的可见程度作为启发式信息，引导蚂蚁选择下一个城市，选择合理的城市作为枢纽，然后确定网络的连接方式，以最小化运输成本和枢纽建设成本为目标函数，此种方案适用于大型航空公司网络设计。2010年，Yi Qin 等人又提出了一种具有人类学习能力的蚁群算法(HACA)，针对运输成本和航空流量的不确定性，采用鲁棒优化方法建立了新的数学模型\upcite{ref_article16}，通过假设枢纽机场已被选定并且容量有限，进而确定中心机场与其他机场的连接来在不确定需求和运输成本的条件下确定机场间的最优连接，HACA算法经验证可以避免过早陷入局部解，有效地提高了解的多样性。
 
-随着空中交通量的增长，很多国内航空公司开始关注航班网络的优化，国内航空公司大多参照发达国家航空的运营网络模式---轴辐式(hub-and-spoke)网络进行优化。Jing Xiong 等人通过对航空机队规划的研究\upcite{ref_article14}，以航空公司运营路径网络利润最大化、成本最小化模型建立目标函数，对中国国内民航企业融入全球市场提出参考。WU Wei-wei 等人应用集队理论(Set pair Theory)\upcite{ref_article25}，考虑市场需求、航线运营成本和机场容量，研究了对于航空公司如何选择开发新的航线，从而优化航班网络结构、提高公司经济收益和竞争力。针对如何建设城市中心辐射网络，ZHANG Yan 等人采用鲁棒优化方法对航班规划过程进行优化，引入Dijkstra改进初始解和领域结构\upcite{ref_article12}，计算结果表明方案在航空公司航班优化有良好的效果，对国内航空公司网络优化有着一定的指导意义。ZHANG Yan等人之后又提出了用于智能航班规划的改进禁忌搜索算法\upcite{ref_article11}，引入专门的Floyd最短路径方法来改善初始解和邻域结构，对于航空公司网络而言，最短路径通常意味着路线上的成本最小化，可以通过找到每对节点之间的最短路径来解决连接状态的问题，并且可以通过重复找到最佳和第二最佳解决方案。作者仅选择了北京、上海、广州和西安四个城市作为中心城市，未来工作将深入研究区域一级作为中心机场的应用。
+随着空中交通量的增长，很多国内航空公司开始关注航班网络的优化，国内航空公司大多参照发达国家航空的运营网络模式---轴辐式(hub-and-spoke)网络进行优化。Jing Xiong 等人通过对航空机队规划的研究\upcite{ref_article14}，以航空公司运营路径网络利润最大化、成本最小化模型建立目标函数，对中国国内民航企业融入全球市场提出参考。WU Wei-wei 等人应用集队理论(Set pair Theory)\upcite{ref_article25}，考虑市场需求、航线运营成本和机场容量，研究了对于航空公司如何选择开发新的航线，从而优化航班网络结构、提高公司经济收益和竞争力。针对如何建设城市中心辐射网络，ZHANG Yan 等人采用鲁棒优化方法对航班规划过程进行优化，引入Dijkstra改进初始解和领域结构\upcite{ref_article12}，计算结果表明方案在航空公司航班优化有良好的效果，对国内航空公司网络优化有着一定的指导意义。ZHANG Yan等人之后又提出了用于智能航班规划的改进禁忌搜索算法\upcite{ref_article11}，引入专门的Floyd最短路径方法来改善初始解和邻域结构，对于航空公司网络而言，最短路径通常意味着路线上的成本最小化，可以通过找到每对节点之间的最短路径来解决连接状态的问题，并且可以通过重复找到最佳和第二最佳解决方案。作者仅选择了北京、上海、广州和西安四个城市作为中心城市，未来工作将深入研究区域一级作为中心机场的应用。针对国内航班规划的现状，类似的工作还有Xie chunsheng等人\upcite{ref_article35}的研究，他们深入研究了飞机的航线选择。
 
-航空公司航班机队分配问题在理论上属于整数规划，针对国内航线的单中心辐射网络的特点，大多数经典算法(如分支限界法)导致性能不佳，Yu Wang等人首先基于单轴辐式(hub-and-spoke)航班网络作预处理，减少航班规划问题的规模，通过直接路径的随机分解，使用模拟算法求解航班机队分配\upcite{ref_article13}，方案稳定效率较高，这种方案基于单中心辐射航班网络，作者未来的研究将支持运行多中心分支的轴辐式网络。
+航空公司航班机队分配问题在理论上属于整数规划，针对国内航线的单中心辐射网络的特点，大多数经典算法(如分支限界法)导致性能不佳，Yu Wang等人首先基于单轴辐式(hub-and-spoke)航班网络作预处理，减少航班规划问题的规模，通过直接路径的随机分解，使用模拟算法求解航班机队分配\upcite{ref_article13}，方案稳定效率较高，这种方案基于单中心辐射航班网络，作者未来的研究将支持运行多中心分支的轴辐式网络。Luo Jie等人\upcite{ref_article36}从节省燃料的角度设计了航空机队规划的方案。
 
 %插图
 % \begin{figure}[ht]
@@ -50,7 +50,7 @@
    min\ Z = \sum_{i_b}C_{d,i_b}P_{i_b}\left[\sum_{t_n}x_{i_b,t_n}t_n-t_{i_b,0}\right]+ \\ \sum_{i_w}C_{d,i_w}P_{i_w}\left[\sum_{t_n}x_{i_w,t_n}t_n-t_{i_w,0}\right]+\left[\sum_{t_{en}}x_{i_w,t_{en}}t_{en}-t_{i_w,en0}\right] \\
 \end{multline*}  
 
-公式中第 1 部分表示本场航班离港延误成本，第 2 部分表示外场航班离港延误成本，第 3 部分表示外场航班进港延误成本$i_b$为本场航班集合;$C_{d,i_b}$为本场航班的单位时间延误系数;$P_{i_b}$为本场航班延误系数;$x_{i_b,t_n}$为0-1变量，表示本场第 i 个航班在 $t_n$ 时刻出港时为 1 ，否则为0;其余变量对应外场航班参数。考虑的情况比较周全，然而航空约束条件不止作者涉及的限制条件，还有诸如航空管制、机组人员调度安排、航班资源约束等，在多参数、复杂约束情况下还需要更合理高效的解决方案。
+公式中第 1 部分表示本场航班离港延误成本，第 2 部分表示外场航班离港延误成本，第 3 部分表示外场航班进港延误成本$i_b$为本场航班集合;$C_{d,i_b}$为本场航班的单位时间延误系数;$P_{i_b}$为本场航班延误系数;$x_{i_b,t_n}$为0-1变量，表示本场第 i 个航班在 $t_n$ 时刻出港时为 1 ，否则为0;其余变量对应外场航班参数。$i_w$为外场航班集合;$C_{d,i_w}$为外场航班的单位时间延误系数;$P_{i_w}$为外场航班延误系数;$x_{i_w,t_n}$为0-1变量，表示本场第 i 个航班在 $t_w$ 时刻出港时为 1 ，否则为0;$t_{en}$为外场航班实际进港时间;$x_{i_w,t_{en}}$为0-1变量，表示本场第 i 个航班在 $t_{en}$ 时刻出港时为 1 ，否则为0;$t_{i_w,en0}$为外场航班原 先的离港时刻。考虑的情况比较周全，然而航空约束条件不止作者涉及的限制条件，还有诸如航空管制、机组人员调度安排、航班资源约束等，在多参数、复杂约束情况下还需要更合理高效的解决方案。
 
 \begin{figure}[ht]
 \centering
@@ -59,9 +59,9 @@
 \label{fig1}
 \end{figure}
 
-在北美乃至全球航空网络中，都有同样的一个重要特征，即更多航线倾向于连接到重要的结点(航空枢纽或者大型都市)，这在英文中被称为"preferential attachment"，即航空枢纽的附加优惠。Hidefumi Sawai 认为这种航班网络还有提高效率的空间\upcite{ref_article9}，他受到蚁群优化算法(ACO)的启发，设计了一种小世界(SW)网络，利用ACO自组织小世界网络，进而形成多星网络(n-star)，其航线的平均长度较短。空客A380机型的停产也在某种程度上应验了作者的观点，未来航班规划都在往多航线、多中小机型方面发展。这种n个星形结点组成的架构能让乘客有更多路线选择、减少乘客换乘次数，而且作为星形结点的重要城市均完全连接形成集团，节省里程和巡航距离、降低航空公司的运营成本，Hidefumi Sawai 小世界(SW)模型预测未来的全球航空网络示意图(见图\ref{fig1})。
+在北美乃至全球航空网络中，都有同样的一个重要特征，即更多航线倾向于连接到重要的结点(航空枢纽或者大型都市)，这在英文中被称为"preferential attachment"，即航空枢纽的附加优惠。Hidefumi Sawai 认为这种航班网络还有提高效率的空间\upcite{ref_article9}，他受到蚁群优化算法(ACO)的启发，设计了一种小世界(SW)网络，利用ACO自组织小世界网络，进而形成多星网络(n-star)，其航线的平均长度较短。空客A380机型的停产也在某种程度上应验了作者的观点，未来航班规划都在往多航线、多中小机型方面发展。这种n个星形结点组成的架构能让乘客有更多路线选择、减少乘客换乘次数，而且作为星形结点的重要城市均完全连接形成集团，节省里程和巡航距离、降低航空公司的运营成本，可以以此设计新一代的全球航空网络，取代现有的传统航空网络，新的航空网络从任何起点到地球上任何目的地的中转次数较少，平均巡航距离更短，对乘客和航空公司都有好处，而且在将来成功应用将有助于减少二氧化碳等温室气体的排放，同时加强全球的交通和运输。Hidefumi Sawai 小世界(SW)模型预测未来的全球航空网络示意图(见图\ref{fig1})。
 
-关于航班恢复规划类似的工作还有很多，Stojković等人\upcite{ref_article26}开发了一种网络模型，可以最大限度地减少乘客的总延误，并使用分支定界启发式求得问题最优解，在理论上有很好的效果，但是难以应用到现实中。Xiuli等人\upcite{ref_article27}提出了一种结合GRASP和禁忌搜索的混合启发式算法。Dozić等人\upcite{ref_article28}开发了一种启发式算法，它可以交换部分轮转数据并返回一系列较优的解。Eggenberg等人\upcite{ref_article29}提出了一个约束特定的恢复网络模型，它们通过列生成解决方案。Rosenberger等人\upcite{ref_article30}将飞机恢复问题建模为集合打包问题，并使用飞机选择启发式来确定飞机的子集以减小整数规划问题规模的大小。Jarrah等人\upcite{ref_article31}使用最小成本网络模型，一个延迟模型和一个消除模型，并实现了一种算法，该算法反复解决最短路径问题，以确定必要的流量。SINCLAIR等人\upcite{ref_article4}提出基于列生成的后优化启发式算法来规划航班和乘客的恢复，采用混合整数线性规划模型，并采用LNS启发式算法降低问题规模。Meilong Le等人\upcite{ref_article8}综合论述了恢复航班的规划问题的研究，对比了不同工作的进展。
+关于航班恢复规划类似的工作还有很多，Stojković等人\upcite{ref_article26}开发了一种网络模型，可以最大限度地减少乘客的总延误，并使用分支定界启发式求得问题最优解，在理论上有很好的效果，但是难以应用到现实中。Xiuli等人\upcite{ref_article27}提出了一种结合GRASP和禁忌搜索的混合启发式算法。Dozić等人\upcite{ref_article28}开发了一种启发式算法，它可以交换部分轮转数据并返回一系列较优的解。Eggenberg等人\upcite{ref_article29}提出了一个约束特定的恢复网络模型，它们通过列生成解决方案。Rosenberger等人\upcite{ref_article30}将飞机恢复问题建模为集合打包问题，并使用飞机选择启发式来确定飞机的子集以减小整数规划问题规模的大小。Jarrah等人\upcite{ref_article31}使用最小成本网络模型，一个延迟模型和一个消除模型，并实现了一种算法，该算法反复解决最短路径问题，以确定必要的流量。SINCLAIR等人\upcite{ref_article4}提出基于列生成的后优化启发式算法来规划航班和乘客的恢复，采用混合整数线性规划模型，并采用LNS启发式算法降低问题规模。Meilong Le等人\upcite{ref_article8}综合论述了恢复航班的规划问题的研究，从乘客恢复、飞机恢复、机组人员恢复等多个方面对比了不同工作的进展。Jay M等人\upcite{ref_article37}研究了航班恢复中飞机的安排方案。Ladislav Lettovsk等人\upcite{ref_article38}等人研究了航班恢复中机组人员的安排方案，Gang Yu等人\upcite{ref_article39}也做了类似的工作。另外，遗传算法在航班恢复规划上也有应用，比如Y.f.Guo\upcite{ref_article40}等人的研究表明遗传算法在这方面也表现良好。Stephane Bratu等人\upcite{ref_article41}则从乘客角度研究了航班恢复的规划。
 
 \section{从其他方面入手的设计}
 在航线、机场日益增多的情况下，航班时刻优化的相关研究随之增多。然而相关的研究多数往往仅考虑了航空公司的经济效益或者空中交通流量管理，为此胡明华\ 等人提出一种改进的匈牙利算法\upcite{ref_article1}，对两者综合考虑，基于以往的航班数据，以增加虚拟航班的形式将航班规划转化为指派问题，迭代寻找最优解。在对单个机场航班规划的设计上表现良好，作者将进一步针对机场网络进行航班规划算法的研究和改进。
@@ -74,8 +74,10 @@ David W. Hutchison等人\upcite{ref_article17}通过仿真模拟航班延误来�
 
 Seyed Sina Mohria等人\upcite{ref_article19}另辟蹊径，他们从机场容量包络曲线入手设计轴辐式(hub-and-spoke)航班网络，提出了一种新的实用的航空公司轮毂容量决策模型，对一些小规模的伊朗航空公司网络进行了精确求解，针对大型航空公司网络提出了具有移动自适应的大领域搜索算法。
 
+航班延误恢复依然是航班规划的重点，Jonathan等人\upcite{ref_article34}使用时间段优化模型，用于重建飞机航线，将飞机重新分配到航班并使成本最小化。
+
 \section{总结}
-本文简要回顾了近些年航班规划领域的相关研究进展，根据航班规划设计考虑的对象对文献进行了简单分类论述，有些模型部分算法有着或多或少的相同，求解方法大致有启发式、数学规划、混合法三类。航班规划是一种高维约束问题，这种NP-hard问题以整数规划求解效果不甚理想，而启发式算法的相关研究众多。几类算法各有优劣：
+本文简要回顾了近些年航班规划领域的相关研究进展，根据航班规划设计考虑的对象对文献进行了简单分类论述，有些模型部分算法有着或多或少的相同，求解方法大致有启发式、数学规划、混合法三类。航班规划是一种高维约束问题，相关研究主要涉及航班网络的设计、航空机队的安排、延误后航班恢复这三个方面。这种NP-hard问题以整数规划求解效果不甚理想，而启发式算法的相关研究众多。几类算法各有优劣：
 
 \begin{table}
 \centering
@@ -93,7 +95,9 @@ Seyed Sina Mohria等人\upcite{ref_article19}另辟蹊径，他们从机场容�
 \caption{启发式、整数规划、混合法三类算法对比.}\label{tab1}
 \end{table}
 
+航空公司花费大量时间、精力、人力、物力、财力等资源在航班规划上，最大限度的减少公司损失同时提高乘客满意度、提高公司商誉。运作良好的航空网络不仅能够提高航空公司经济收益、给乘客带来边界，而且将能够提高航空资源利用率，减少燃料的消耗，为减少二氧化碳等温室气体排放做出贡献。
 
+随着人工智能算法的不断深入研究，在航班规划这种高维约束问题的应用也越来越多，未来人工智能相关算法(如tensorflow)将会使航班规划的研究更上一个台阶。
 % \noindent Displayed equations are centered and set on a separate
 % line.
 % \begin{equation}
@@ -244,31 +248,33 @@ DUAN Hai-bin. Principle and Application of ant colony algorithm[M]. Beijing : Sc
 \bibitem{ref_article33}
 Guo Chonghui, Yue Xiaohui, "An Improved Tabu Search Algorithm and application to global progressively optimization" [1], Operation and Management, 2007,16 (4) :6211.
 
+
+
+
 \bibitem{ref_article34}
+Jonathan F. Bard, Gang Yu and Michael F. Arguello. Optimizing aircraft routings in response to groundings and delays. IIE Transactions(2001), 33:931-947. 
 
 \bibitem{ref_article35}
+Xie chunsheng,Zhao yi,Li haibing, “Analysis and Research on the route of aircraft selection”,journal of civil aviation flight university of china,vol.43,issue 5,pp,78-81,2009.  
 
 \bibitem{ref_article36}
+Luo jie,Zhang xiongqi,Li guosheng, “Fleet planning model based on the minimization of fuel cost”,silicon valley, vol. 13,issue 18,pp.27-31,2009. 
 
 \bibitem{ref_article37}
+Jay M. Rosenberger, Ellis L. Johnson, George L. Nemhauser, Rerouting Aircraft for Airline Recovery, Transportation Science (2003), Vol. 37, No. 4, pp. 408̄421. 
 
 \bibitem{ref_article38}
+Ladislav Lettovsk, Ellis L. Johnson, George L. Nemhauser. Airline Crew Recovery. TRANSPORTATION SCIENCE Vol. 34, No. 4, November 2000, pp. 337-348. 
 
 \bibitem{ref_article39}
+Gang Yu,Michael Arguello, Gao Song, Sandra M. McCowan, Anna White. A New Era for Crew Recovery at Continental Airlines. Interfaces, vol. 33, no. 1, pp. 5–22, 2003. 
 
 \bibitem{ref_article40}
+Y.f.Guo, L. Suhl, M. P. Thiel. Solving the Airline Crew Recovery Problem by a Genetic Algorithm with Local Improvement. Operational Research. An International Journal. Vol.5, No.2 (2005), pp.241-259 
 
 \bibitem{ref_article41}
+Stephane Bratu, Cynthia Barnhart, Flight operations recovery: New approaches considering passenger recovery, Journal of Scheduling (2006) 9:279–298 
 
-\bibitem{ref_article42}
-
-\bibitem{ref_article43}
-
-\bibitem{ref_article44}
-
-\bibitem{ref_article45}
-
-\bibitem{ref_article46}
 
 
 
