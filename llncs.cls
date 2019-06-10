@@ -78,6 +78,7 @@
 %
 \def\switcht@albion{%
 \def\abstractname{Abstract.}
+\def\enabstractname{Abstract.}
 \def\ackname{Acknowledgement.}
 \def\andname{and}
 \def\lastandname{\unskip, and}
@@ -91,7 +92,8 @@
 \def\examplename{Example}
 \def\exercisename{Exercise}
 \def\figurename{Fig.}
-\def\keywordname{{\bf Keywords:}}
+\def\keywordname{{\bf 关键词:}}
+\def\enkeywordname{{\bf Keywords:}}
 \def\indexname{Index}
 \def\lemmaname{Lemma}
 \def\contriblistname{List of Contributors}
@@ -889,6 +891,9 @@ to0pt{\kern0.55\wd0\vrule height0.45\ht0\hss}\box0}}}}
 \providecommand{\keywords}[1]{\def\and{{\textperiodcentered} }%
 \par\addvspace\baselineskip
 \noindent\keywordname\enspace\ignorespaces#1}%
+\providecommand{\enkeywords}[1]{\def\and{{\textperiodcentered} }%
+\par\addvspace\baselineskip
+\noindent\enkeywordname\enspace\ignorespaces#1}%
 \@ifpackageloaded{hyperref}{%
 \def\doi#1{\href{https://doi.org/#1}{https://doi.org/#1}}}{
 \def\doi#1{https://doi.org/#1}}
@@ -1184,6 +1189,17 @@ to0pt{\kern0.55\wd0\vrule height0.45\ht0\hss}\box0}}}}
       \rightmargin\leftmargin}\item[\hskip\labelsep
                                     \bfseries\abstractname]}
     {\endlist}
+
+\newenvironment{enabstract}{%
+      \list{}{\advance\topsep by0.35cm\relax\small
+      \leftmargin=1cm
+      \labelwidth=\z@
+      \listparindent=\z@
+      \itemindent\listparindent
+      \rightmargin\leftmargin}\item[\hskip\labelsep
+                                    \bfseries\enabstractname]}
+    {\endlist}
+
 
 \newdimen\headlineindent             % dimension for space between
 \headlineindent=1.166cm              % number and text of headings.
